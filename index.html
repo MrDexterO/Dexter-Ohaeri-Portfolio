@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dexter Ohaeri | Filmmaker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            height: 100vh;
+            /* Combines the image with a linear gradient tint directly */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://cdn.shopify.com/s/files/1/0049/0101/1502/files/ZHIYUN_Crane_4_Gimbal_Stabilizers.jpg?v=1714980888') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            /* Centers content horizontally */
+            align-items: center;
+            text-align: center;
+        }
+
+        /* You won't need the .hero-overlay class at all with this method! */
+
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 220px;
+            border-radius: 10px;
+        }
+
+        .timeline li {
+            background: #1a1a1a;
+            margin-bottom: 10px;
+            border: none;
+            color: #ccc;
+        }
+
+        .contact-pill {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .contact-pill:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: #e50914;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #ff1f2d;
+        }
+
+        footer {
+            background: #000;
+        }
+
+
+        /* ABOUT */
+
+        .about-text {
+            max-width: 680px;
+            position: relative;
+        }
+
+        /* Subtle cinematic accent line */
+        .about-text::before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 10px;
+            height: 80%;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #e50914, transparent);
+        }
+
+        /* Typography */
+        .about-text p {
+            color: #bfbfbf;
+            line-height: 1.85;
+            font-size: 0.98rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Intro paragraph (hero text feel) */
+        .about-text .intro {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #f5f5f5;
+            line-height: 1.7;
+        }
+
+        /* Strong text */
+        .about-text strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .about-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Links */
+        .about-footer .links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .about-footer a {
+            text-decoration: none;
+            color: #e0e0e0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        /* Underline animation */
+        .about-footer a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0%;
+            height: 1px;
+            background: #e50914;
+            transition: width 0.3s ease;
+        }
+
+        .about-footer a:hover::after {
+            width: 100%;
+        }
+
+        /* Hover color */
+        .about-footer a:hover {
+            color: #ffffff;
+        }
+
+        /* YouTube accent */
+        .about-footer a.yt {
+            color: #e50914;
+        }
+
+
+
+        /* THE NAV SECTION */
+
+        /* Custom styles for full-screen mobile menu */
+
+        /* 1. Ensure the navbar background stays consistent */
+        .navbar {
+            transition: background-color 0.3s ease;
+            z-index: 1050;
+            /* Stay above content */
+        }
+
+
+        /* 2. Full-screen mobile menu setup */
+        @media (max-width: 991.98px) {
+
+            /* Forces list to properly center and fills screen */
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: #212529 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            /* Forces navigation items to center vertically */
+            .navbar-collapse .navbar-nav {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 100%;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .navbar-nav .nav-item {
+                margin: 10px 0;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 1.8rem;
+                color: #fff !important;
+            }
+
+            /* Shows full screen menu when toggled */
+            .navbar-collapse.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /* Keeps toggler on top of full screen menu */
+            .navbar-toggler {
+                position: relative;
+                z-index: 1100;
+                border: none !important;
+                outline: none !important;
+                box-shadow: none !important;
+            }
+
+            /* Hides logo when menu is active */
+            body.nav-active .navbar-brand {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.2s ease;
+            }
+
+            /* Disables background scrolling AND hides the scrollbar */
+            body.nav-active {
+                overflow: hidden !important;
+                height: 100vh !important;
+            }
+
+            /* 3. Hamburger to X transformation code */
+            .navbar-toggler .navbar-toggler-icon {
+                background-image: none !important;
+                position: relative;
+                width: 24px;
+                height: 2px;
+                background-color: #fff;
+                display: inline-block;
+                transition: background-color 0.2s ease;
+            }
+
+            .navbar-toggler .navbar-toggler-icon::before,
+            .navbar-toggler .navbar-toggler-icon::after {
+                content: '';
+                position: absolute;
+                width: 24px;
+                height: 2px;
+                background-color: #fff;
+                left: 0;
+                transition: transform 0.3s ease;
+            }
+
+            .navbar-toggler .navbar-toggler-icon::before {
+                top: -8px;
+            }
+
+            .navbar-toggler .navbar-toggler-icon::after {
+                top: 8px;
+            }
+
+            /* Transforms to X when menu opens */
+            .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+                background-color: transparent;
+            }
+
+            .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: #212529 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+
+                /* 🚨 FIXES LANDSCAPE CUT-OFFS: Allows scrolling INSIDE the menu if it overflows */
+                overflow-y: auto !important;
+                padding-top: 60px;
+                /* Prevents close button from overlapping content */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top p-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Dexter Ohaeri</a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+                aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#journey">Journey</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item d-flex">
+                        <a class="nav-link px-3 py-2 rounded-pill border border-light text-white bg-transparent contact-pill d-inline-flex align-items-center"
+                            href="#contact">
+                            Let’s Talk
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero d-flex justify-content-center align-items-center">
+        <div class="text-center">
+            <!-- 1. Accent Label -->
+            <div
+                class="d-inline-flex align-items-center bg-white bg-opacity-10 backdrop-blur-sm border border-white border-opacity-25 rounded-pill px-4 py-2 mb-3">
+                <p class="text-uppercase fw-semibold text-white letter-spacing-1 mb-0" style="font-size: 0.85rem;">
+                    Storyteller • Video Editor • Filmmaker
+                </p>
+            </div>
+
+            <!-- 2. Main Title -->
+            <h1 class="display-2 fw-bold mb-4 text-white">
+                Creating Change, One Story at a Time
+            </h1>
+            <a href="#work" class="btn btn-primary btn-lg mt-3">View My Work</a>
+        </div>
+    </section>
+
+
+    <!-- About -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <!-- Image Placeholder -->
+                <div class="col-md-5">
+                    <img src="./assets/images/logo-Dexter.jpg" class="about-img" alt="Dexter Ohaeri">
+                </div>
+
+                <!-- Bio -->
+                <div class="col-md-7">
+                    <h2>About Dexter</h2>
+                    <div class="about-text">
+
+                        <div class="about-text">
+
+                            <p class="intro mb-4">
+                                Hi, I’m Dexter — a media professional with over two decades of experience in
+                                broadcasting and digital
+                                storytelling,
+                                including leading the award-winning <strong>Channels Visual Reality Interface</strong>.
+                            </p>
+
+                            <p>
+                                I’m a co-recipient of the BEA Award for transmedia storytelling. Alongside my media
+                                work, I teach web and
+                                software
+                                product development, helping individuals and businesses build meaningful digital
+                                solutions.
+                            </p>
+
+                            <p>
+                                My portfolio spans commercials, documentaries, and branded content, collaborating with
+                                creatives and global
+                                brands.
+                                My approach blends cinematic pacing, emotional depth, and precision.
+                            </p>
+
+                            <p>
+                                Beyond media, I actively mentor aspiring developers—guiding them in HTML, CSS,
+                                JavaScript, and Python while
+                                helping
+                                them transition into real-world tech careers.
+                            </p>
+
+                            <p class="mb-4">
+                                I also lead a nonprofit bootcamp focused on empowering young people, where outstanding
+                                participants receive
+                                funding
+                                to launch and scale their own ventures.
+                            </p>
+
+                            <div class="about-footer">
+                                <span>Find me on</span>
+                                <div class="links">
+                                    <a href="https://linkedin.com/in/MrDexterOhaeri" target="_blank">LinkedIn</a>
+                                    <a href="https://github.com/MrDexterO" target="_blank">GitHub</a>
+                                    <a href="https://www.youtube.com/watch?v=CdljHoEs_7w&list=PLdcS8OfqIxEtatV7i1FHf3g0UzKpoaqU2"
+                                        target="_blank" class="yt">YouTube</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Work / Videos -->
+    <section id="work" class="section bg-dark">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Work</h2>
+
+            <div class="row g-4">
+                <div class="col-md-4 video-card">
+                    <iframe width="1556" height="810"
+                        src="https://www.youtube.com/embed/kHZmvN3NkM0?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&"
+                        title="The role of DIGITAL MEDIA in CULTURAL Preservation w/@Blossom Ozurumba | The High Table EP5"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4 video-card">
+                    <iframe width="1556" height="810"
+                        src="https://www.youtube.com/embed/eX5XtR7B2Y4?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&"
+                        title="Hound Therapy Ad" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4 video-card ">
+                    <iframe
+                        src="https://www.youtube.com/embed/CdljHoEs_7w?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&disablekb=0"
+                        title="Smart Cycle Final Ad" allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="col-md-4 video-card">
+                    <iframe width="1556" height="810"
+                        src="https://www.youtube.com/embed/Z3tkBVQocuU?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&"
+                        title="Lincoln Theater Commercial" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4 video-card">
+                    <iframe width="1556" height="810"
+                        src="https://www.youtube.com/embed/0xD5vhrWVQs?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&"
+                        title="Mitchell Thomson Interiors Ad" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4 video-card">
+                    <iframe width="1556" height="810"
+                        src="https://www.youtube.com/embed/Z5d511CrGHE?rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3&fs=1&"
+                        title="GNP Commercial" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey -->
+    <section id="journey" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Career Milestone</h2>
+
+            <ul class="list-group timeline">
+                <li class="list-group-item">2005 – First ever project showed on Local TV</li>
+                <li class="list-group-item">2012 – Wrote, Produced & Directed first short film</li>
+                <li class="list-group-item">2013 – Joined Nigeria's premier broadcaster, Channels TV</li>
+                <li class="list-group-item">2019 – Developed & Led the launch of the Channels Virtual Reality Interface
+                </li>
+                <li class="list-group-item">2023 – Co-repient, BEA Award for Execelence</li>
+                <li class="list-group-item">2024 – Worked with the Florida-based Podcast Plus Media</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Latest Insights</h2>
+
+            <div class="row g-4">
+
+                <!-- Post 1 -->
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white border-0 h-100">
+                        <img src="https://images.blackmagicdesign.com/images/products/davinciresolve/keyboard/hero/hero-xl.jpg?_v=1754263174"
+                            class="card-img-top" alt="Blog Image" style="height: 280px; object-fit: cover;" />
+                        <div class="card-body">
+                            <h5 class="card-title">Crafting Cinematic Stories</h5>
+                            <p class="card-text text-secondary">
+                                A look into how pacing, sound, and visuals come together to create emotional impact.
+                            </p>
+                            <a href="blog.html" target="_blank" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white border-0 h-100">
+                        <img src="https://cdn2.unrealengine.com/Unreal+Engine%2Fblog%2Fvirtual-production-all-the-way-fast-creative-filmmaking-with-mr-factory%2Fblog_body_img3-1640x1000-fa280151fe1019e036674a80af38b69342ca1381.jpg"
+                            style="height: 280px; object-fit: cover;" class="card-img-top" alt="Blog Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Into the Media Multiverse</h5>
+                            <p class="card-text text-secondary">
+                                How VR, AR, and MR are transforming production across the media spectrum.
+                            </p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white border-0 h-100">
+                        <img src="./assets/images/ChannelsVRI.png" style="height: 280px; object-fit: cover;"
+                            class="card-img-top" alt="Blog Image">
+                        <div class="card-body">
+                            <h5 class="card-title">The Channels Virtual Reality Interface</h5>
+                            <p class="card-text text-secondary">
+                                A breakdown of the creative decisions and challenges during production.
+                            </p>
+                            <a href="#" target="" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <!-- Contact -->
+    <section id="contact" class="section bg-dark">
+        <div class="container">
+
+            <div class="row g-5 align-items-start">
+
+                <!-- Left Column -->
+                <div class="col-md-5">
+                    <h2 class="mb-3">Let’s Talk</h2>
+                    <p class="text-secondary">
+                        I love to collaborate and make awesome content. Let’s talk!
+                    </p>
+
+                    <h5 class="mt-4">Get In Touch</h5>
+                    <p class="text-secondary mb-1"> Location: Mount Vernon, OH</p>
+                    <p class="text-secondary mb-1">+1 740 358 1659</p>
+                    <p class="text-secondary">powerproject360@gmail.com</p>
+                </div>
+
+                <!-- Right Column (Form) -->
+                <div class="col-md-7">
+                    <h5 class="mb-3">Send Me a message</h5>
+
+                    <form class="row g-3">
+
+                        <div class="col-12">
+                            <input type="text" class="form-control bg-black text-white border-secondary"
+                                placeholder="Full name *">
+                        </div>
+
+                        <div class="col-12">
+                            <input type="email" class="form-control bg-black text-white border-secondary"
+                                placeholder="Email address *">
+                        </div>
+
+                        <div class="col-12">
+                            <input type="text" class="form-control bg-black text-white border-secondary"
+                                placeholder="Subject *">
+                        </div>
+
+                        <div class="col-12">
+                            <textarea rows="5" class="form-control bg-black text-white border-secondary"
+                                placeholder="Your message *"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100">Send Message</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center p-3">
+        <p class="text-secondary mb-0">© <span id="year"></span> Dexter Ohaeri | Filmmaker Portfolio</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Navigation JS Logic -->
+    <script>
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const body = document.body;
+        const navLinks = document.querySelectorAll('.nav-link');
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+        // 1. Toggle body scroll and logo hiding when clicking hamburger
+        navbarToggler.addEventListener('click', () => {
+            setTimeout(() => {
+                if (navbarCollapse.classList.contains('show')) {
+                    body.classList.add('nav-active');
+                } else {
+                    body.classList.remove('nav-active');
+                }
+            }, 50);
+        });
+
+        // 2. Closes menu and scrolls simultaneously
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('href');
+
+                if (targetId.startsWith('#') && window.innerWidth < 992) {
+                    e.preventDefault();
+
+                    // Instantly unlock scroll and close menu
+                    body.classList.remove('nav-active');
+                    bsCollapse.hide();
+
+                    // Instantly trigger the scroll at the exact same time
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
